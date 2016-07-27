@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <title>pgs-md-ed</title>
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html"/>
+    <link rel="import" href="../bower_components/polymer-ts/polymer-ts.html"/>
+    <script src="../bower_components/web-component-tester/browser.js"></script>
+    <link rel="import" href="../src/pgs-md-ed.html"/>
+</head>
+<body>
+
+<test-fixture id="empty">
+    <template>
+        <pgs-md-ed></pgs-md-ed>
+    </template>
+</test-fixture>
+
+<test-fixture id="with markdown">
+    <template>
+        <pgs-md-ed></pgs-md-ed>
+    </template>
+</test-fixture>
+
+<script>
+
+    var fixture, editor;
+
+    describe('pgs-md-ed', function () {
+
+        describe('empty', function () {
+
+            beforeEach(function () {
+                fixture = document.getElementById('empty');
+                fixture.create();
+                editor = document.querySelector('pgs-md-ed');
+            });
+
+            it('has null markdown prop', function () {
+
+                assert.equal(editor.markdown, null);
+
+            });
+
+        });
+
+        describe('with markdown content', function () {
+
+            it('should render with zero-md', function (done) {
+
+                editor.markdown = "## I'm a heading";
+
+                flush(function () {
+
+                    var heading = document.querySelector('pgs-md-ed /deep/ zero-md div.md-html h2');
+
+                    assert.equal(heading.textContent, "I'm a heading");
+
+                    done();
+                });
+
+            });
+
+        });
+
+        afterEach(function () {
+            fixture.restore();
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
