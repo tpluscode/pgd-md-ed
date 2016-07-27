@@ -6,7 +6,7 @@
     <link rel="import" href="../bower_components/polymer/polymer.html"/>
     <link rel="import" href="../bower_components/polymer-ts/polymer-ts.html"/>
     <script src="../bower_components/web-component-tester/browser.js"></script>
-    <link rel="import" href="../src/pgs-md-ed.html"/>
+    <link rel="import" href="../pgs-md-ed.html"/>
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 
 <test-fixture id="with markdown">
     <template>
-        <pgs-md-ed></pgs-md-ed>
+        <pgs-md-ed markdown="## I'm a heading"></pgs-md-ed>
     </template>
 </test-fixture>
 
@@ -46,9 +46,13 @@
 
         describe('with markdown content', function () {
 
-            it('should render with zero-md', function (done) {
+            beforeEach(function () {
+                fixture = document.getElementById('with markdown');
+                fixture.create();
+                editor = document.querySelector('pgs-md-ed');
+            });
 
-                editor.markdown = "## I'm a heading";
+            it('should render with zero-md', function (done) {
 
                 flush(function () {
 

@@ -1,0 +1,41 @@
+<link rel="import" href="bower_components/zero-md/zero-md.html" />
+<link rel="import" href="bower_components/paper-material/paper-material.html" />
+<link rel="import" href="bower_components/paper-input/paper-textarea.html" />
+
+<dom-module id="pgs-md-ed">
+    <template>
+        <style>
+            :host {
+                display: flex;
+
+                --pgs-md-ed-container: {
+                    width: 50%;
+                    flex: 1;
+                    margin: 5px;
+                };
+            }
+
+            #editor {
+                @apply(--pgs-md-ed-container);
+                @apply(--pgs-md-ed-editor);
+            }
+
+            #preview {
+                @apply(--pgs-md-ed-container);
+                @apply(--pgs-md-ed-preview);
+            }
+        </style>
+
+        <paper-material id="editor" elevation="1">
+            <paper-textarea value="{{markdown}}"></paper-textarea>
+        </paper-material>
+
+        <paper-material id="preview" elevation="1">
+            <zero-md text="[[markdown]]">
+                <div class="md-html"></div>
+            </zero-md>
+        </paper-material>
+    </template>
+</dom-module>
+
+<script src="pgs-md-ed.js"></script>
