@@ -25,9 +25,11 @@
             }
         </style>
 
-        <paper-material id="editor" elevation="1" hidden$="[[!editorShown]]">
-            <paper-textarea value="{{markdown}}"></paper-textarea>
-        </paper-material>
+        <template is="dom-if" if="[[editorShown]]">
+            <paper-material id="editor" elevation="1">
+                <paper-textarea value="{{markdown}}"></paper-textarea>
+            </paper-material>
+        </template>
 
         <paper-material id="preview" elevation="1">
             <zero-md text="[[markdown]]">
