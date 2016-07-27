@@ -10,7 +10,6 @@
 
                 --pgs-md-ed-container: {
                     width: 50%;
-                    flex: 1;
                     margin: 5px;
                 };
             }
@@ -26,7 +25,7 @@
             }
         </style>
 
-        <paper-material id="editor" elevation="1">
+        <paper-material id="editor" elevation="1" hidden$="[[!editorShown]]">
             <paper-textarea value="{{markdown}}"></paper-textarea>
         </paper-material>
 

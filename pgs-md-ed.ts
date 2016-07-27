@@ -5,6 +5,9 @@ class PgsMdEd extends polymer.Base {
 
     @property()
     markdown: String;
+
+    @property()
+    editorShown: Boolean;
 }
 
 PgsMdEd.register();

@@ -18,6 +18,9 @@ var PgsMdEd = (function (_super) {
     __decorate([
         property()
     ], PgsMdEd.prototype, "markdown");
+    __decorate([
+        property()
+    ], PgsMdEd.prototype, "editorShown");
     PgsMdEd = __decorate([
         /// <reference path="./bower_components/polymer-ts/polymer-ts.d.ts" />
         component('pgs-md-ed')
