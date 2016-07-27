@@ -6,9 +6,13 @@
     <template>
         <style>
             :host {
+                display: block;
+            }
+
+            #flex {
                 display: flex;
 
-                @apply(--pgs-md-ed);
+                @apply(--pgs-md-ed-flex);
             }
 
             #editor {
@@ -28,17 +32,19 @@
             }
         </style>
 
-        <template is="dom-if" if="[[editorShown]]">
-            <paper-material id="editor" elevation="1">
-                <paper-textarea value="{{markdown}}"></paper-textarea>
-            </paper-material>
-        </template>
+        <div id="flex">
+            <template is="dom-if" if="[[editorShown]]">
+                <paper-material id="editor" elevation="1">
+                    <paper-textarea value="{{markdown}}"></paper-textarea>
+                </paper-material>
+            </template>
 
-        <paper-material id="preview" elevation="1">
-            <zero-md text="[[markdown]]">
-                <div class="md-html"></div>
-            </zero-md>
-        </paper-material>
+            <paper-material id="preview" elevation="1">
+                <zero-md text="[[markdown]]">
+                    <div class="md-html"></div>
+                </zero-md>
+            </paper-material>
+        </div>
     </template>
 </dom-module>
 
